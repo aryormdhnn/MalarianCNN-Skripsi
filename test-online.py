@@ -30,7 +30,7 @@ def model_predict(img, model):
 st.title("Malaria Detection App")
 st.write("Upload an image to detect malaria.")
 
-uploaded_file = st.file_uploader("Choose an image...", type="png")
+uploaded_file = st.file_uploader("Choose an image...", type=["png", "jpg", "jpeg", "bmp"])
 
 if uploaded_file is not None:
     img = Image.open(uploaded_file)
