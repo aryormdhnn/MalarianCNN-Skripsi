@@ -7,8 +7,8 @@ import gdown
 import os
 
 # ID file Google Drive
-file_id = '1ge_3WFmKzAAw-DXqPxdVUtQy5o3o69Ms'
-model_path = 'data_yang_pakai_kfold5.h5'
+file_id = '17-dxaC04oO95hMExUC_IOoPO0RaRlfkF'
+model_path = 'Nadam_TTS_Epoch50.h5'
 
 # Unduh model dari Google Drive
 if not os.path.exists(model_path):
