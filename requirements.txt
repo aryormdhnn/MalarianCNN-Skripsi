@@ -1,6 +1,7 @@
-streamlit
-tensorflow
-keras
 numpy
+tensorflow
+matplotlib
 Pillow
+streamlit
+opencv-python
 gdown
