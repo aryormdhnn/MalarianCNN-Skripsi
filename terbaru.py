@@ -115,4 +115,4 @@ if uploaded_file is not None:
         save_and_display_gradcam(img, heatmap, alpha=alpha)
 
         # Add description of the heatmap
-        st.write("Deskripsi Heatmap: Area berwarna merah menunjukkan daerah yang dianggap penting oleh model untuk prediksi malaria.")
+        st.write("Heatmap Description: The red areas indicate regions considered important by the model for malaria prediction.")
