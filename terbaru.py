@@ -12,9 +12,12 @@ import os
 
 # Function to download the model from Google Drive
 def download_model(file_id, output_path):
-    if not os.path.exists(output_path):
-        url = f'https://drive.google.com/uc?id={file_id}'
-        gdown.download(url, output_path, quiet=False)
+    try:
+        if not os.path.exists(output_path):
+            url = f'https://drive.google.com/uc?id={file_id}'
+            gdown.download(url, output_path, quiet=True)
+    except Exception as e:
+        st.error(f"Error downloading the model: {e}")
 
 # Download model if it does not exist locally
 file_id = '17-dxaC04oO95hMExUC_IOoPO0RaRlfkF'
