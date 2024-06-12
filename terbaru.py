@@ -3,7 +3,6 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import load_model
-from tensorflow.keras import backend as K
 from PIL import Image
 import streamlit as st
 import cv2
@@ -27,7 +26,7 @@ download_model(file_id, model_path)
 # Load the model
 model = load_model(model_path)
 
-def get_img_array(img, size):
+def preprocess_image(img, size):
     img = img.resize(size)
     array = image.img_to_array(img)
     array = np.expand_dims(array, axis=0)
@@ -89,7 +88,7 @@ uploaded_file = st.file_uploader("Choose an image...", type=["png", "jpg", "jpeg
 if uploaded_file is not None:
     img = Image.open(uploaded_file)
     img = img.resize((256, 256))  # Resize uploaded image
-    img_array = get_img_array(img, size=(128, 128))
+    img_array = preprocess_image(img, size=(128, 128))
     
     last_conv_layer_name = "conv2d_35"
     classifier_layer_names = [
@@ -116,6 +115,3 @@ if uploaded_file is not None:
         
         alpha = st.slider('Adjust Heatmap Intensity', 0.0, 1.0, 0.4)
         save_and_display_gradcam(img, heatmap, alpha=alpha)
-
-        # Add description of the heatmap
-        st.write("Heatmap Description: The red areas indicate regions considered important by the model for malaria prediction.")
